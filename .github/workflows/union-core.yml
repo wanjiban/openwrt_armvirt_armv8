@@ -152,6 +152,15 @@ jobs:
       - name: 项目检查
         uses: actions/checkout@main
 
+      - name: 检查 GitHub Token
+        run: |
+          if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
+            echo "❌ GITHUB_TOKEN 未设置，请检查 Secrets 配置！"
+            exit 1
+          else
+            echo "✅ GITHUB_TOKEN 已正确设置"
+          fi
+  
       - name: 最大化编译空间
         uses: rmoyulong/maximize-build-space@master
         with:
