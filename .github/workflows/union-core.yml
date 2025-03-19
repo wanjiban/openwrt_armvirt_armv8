@@ -152,14 +152,18 @@ jobs:
       - name: 项目检查
         uses: actions/checkout@main
 
-      - name: 检查 GitHub Token
+      - name: 检查 GitHub Token 并打印最后四位
         run: |
           if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
             echo "❌ GITHUB_TOKEN 未设置，请检查 Secrets 配置！"
             exit 1
           else
-            echo "✅ GITHUB_TOKEN 已正确设置"
+            LAST_FOUR=${GITHUB_TOKEN: -4}
+            echo "✅ GITHUB_TOKEN 已正确设置，最后四位为: ***${LAST_FOUR}"
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   
       - name: 最大化编译空间
         uses: rmoyulong/maximize-build-space@master
