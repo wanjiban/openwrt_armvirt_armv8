@@ -489,7 +489,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          token: ${{ secrets.GH_TK }}
+          token: ${{secrets.GH_TK}}
+          #GITHUB_TOKEN: ${{secrets.GH_TK}}
           tag: ${{env.show_tag_name}}
           body: |
             ====================🧊固件信息🧊=======================
