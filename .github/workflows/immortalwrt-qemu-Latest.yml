@@ -105,8 +105,8 @@ jobs:
       # linux 内核
       CORE_LINUX: 6.6.y_6.12.y
       # 固件初始设置 -- patch 目录 不执行: false
-      # CORE_FILES: zyxq/files
-      CORE_FILES: false
+      CORE_FILES: zyxq/files
+      # CORE_FILES: false
       #打包的一些设置
       #save/temp
       kernel_repo: ophub/kernel
